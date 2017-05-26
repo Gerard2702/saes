@@ -28,8 +28,9 @@ if($num2>0){
 <ul class="nav nav-tabs nav-tabs-inverse">
     <li id="detallefacturadiv" class="active"><a href="#default-tab-1"  data-toggle="tab">Detalle de la Factura</a></li>
     <li id="agregarcajadiv" class=""><a href="#default-tab-2"  data-toggle="tab">Agregar Caja</a></li>
+
 </ul>
-<!-- Inicio contenido del panel -->
+<!-- Inicio contenido del panel --> 
 <div class="tab-content">
     <!-- Inicio panel de detalle de facturas -->
     <div class="tab-pane fade active in" id="default-tab-1">
