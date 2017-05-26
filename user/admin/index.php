@@ -133,7 +133,6 @@ if (!isset($usuario) && $token != 'true') {
 							<li><a href="#" id="reportecaja">Cajas</a></li>
 							<li><a href="#" id="reportefactura">Facturas</a></li>
 							<li><a href="#" id="reportecontrato">Contrato</a></li>
-							<li><a href="#" id="reportecontrato">Prueba de cambios</a></li>
 						</ul>
 					</li>
 					
