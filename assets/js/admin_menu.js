@@ -8,7 +8,9 @@ $('#ingresarcaja').click(function(){
 		$('#adminclientes').removeClass("active");
 		$('#admincajas').removeClass("active");
 		$('#adminfacturas').removeClass("active");
-  		$('#contenido').load('../../user/admin/crearcaja.php');		
+		$('#contenido').hide();
+  		$('#contenido').load('../../user/admin/crearfactura.php');
+  		$('#contenido').fadeIn(300);		
 });
 
 $('#nuevocliente').click(function(){
@@ -21,7 +23,9 @@ $('#nuevocliente').click(function(){
 		$('#adminclientes').removeClass("active");
 		$('#admincajas').removeClass("active");
 		$('#adminfacturas').removeClass("active");
-  		$('#contenido').load('../../user/admin/nuevocliente.php');		
+		$('#contenido').hide();
+  		$('#contenido').load('../../user/admin/nuevocliente.php');
+  		$('#contenido').fadeIn(300);		
 });
 
 $('#nuevoproducto').click(function(){
@@ -34,7 +38,9 @@ $('#nuevoproducto').click(function(){
 		$('#adminclientes').removeClass("active");
 		$('#admincajas').removeClass("active");
 		$('#adminfacturas').removeClass("active");
-  		$('#contenido').load('../../user/admin/nuevoproducto.php');		
+		$('#contenido').hide();
+  		$('#contenido').load('../../user/admin/nuevoproducto.php');
+  		$('#contenido').fadeIn(300);	
 });
 
 $('#adminproductos').click(function(){

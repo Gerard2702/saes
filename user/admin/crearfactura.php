@@ -14,22 +14,19 @@ $resp2  = $conn->query($query2);
 $num2   = mysqli_num_rows($resp2);
 $conn->desconectar();
 
+
+
 if($num2>0){
-    $conn->conectar();
     $factura=$resp2->fetch_assoc();
-    $querycajas="SELECT cajas.idcaja,cajas.idfactura,cajas.contrato,SUM(detalle_caja.total) as total from cajas inner join detalle_caja on cajas.idcaja=detalle_caja.idcaja where cajas.idfactura='".$factura['idfactura']."' group by detalle_caja.idcaja ";
-    $resp3  = $conn->query($querycajas);
-    $rowcajas = $resp3;
-    $num3   = mysqli_num_rows($resp3);
-    //$cajas = $rowcajas->fetch_assoc();
-    $conn->desconectar();
+    $_SESSION['idfactura'] = $factura['idfactura'];
 ?>
 <!-- Inicio panel con navbar -->
 <ul class="nav nav-tabs nav-tabs-inverse">
     <li id="detallefacturadiv" class="active"><a href="#default-tab-1"  data-toggle="tab">Detalle de la Factura</a></li>
     <li id="agregarcajadiv" class=""><a href="#default-tab-2"  data-toggle="tab">Agregar Caja</a></li>
+
 </ul>
-<!-- Inicio contenido del panel -->
+<!-- Inicio contenido del panel --> 
 <div class="tab-content">
     <!-- Inicio panel de detalle de facturas -->
     <div class="tab-pane fade active in" id="default-tab-1">
@@ -59,49 +56,8 @@ if($num2>0){
             <br><br>
             <span>Listado de Cajas agregadas</span>
             <!-- Inicio tabla de cajas de la factura -->
-            <div class="table-responsive">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>N° Caja</th>
-                            <th>N° Factura</th>
-                            <th>N° Contrato</th>
-                            <th>Total</th>
-                            <th>Opciones</th>
-                        </tr>
-                    </thead>
-                    <?php if($num3>0){ ?>
-                    <tbody>
-                    <?php while($box = mysqli_fetch_array($resp3,MYSQLI_ASSOC)){?>
-                        <tr>
-                            <td><?php echo $box['idcaja'];?></td>
-                            <td><?php echo $box['idfactura'];?></td>
-                            <td><?php echo $box['contrato'];?></td>
-                            <td class="text-right">$ <?php echo $box['total'];?></td>
-                            <td>
-                                <a class="btn btn-default btn-icon btn-circle btn-sm">
-                                <i class="fa fa-expand"></i>
-                                </a>
-                                <a class="btn btn-default btn-icon btn-circle btn-sm">
-                                <i class="fa fa-cog"></i>
-                                </a>
-                                <a class="btn btn-default btn-icon btn-circle btn-sm">
-                                <i class="fa fa-times"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                    <?php } ?>
-                    </tbody>
-                    <?php } else { ?>
-                        <tr>
-                            <td colspan="5" class="text-center">
-                                <div class="alert alert-warning fade in m-b-15">
-                                <strong>No se han agregado cajas!</strong></div> 
-                            </td>
-                        </tr>
-                    <?php } ?>
-                </table>
+            <div id="listadocajas">
+                
             </div>
             <!-- Fin de la tabla -->
             <div class="col-md-12 text-right">
@@ -112,7 +68,27 @@ if($num2>0){
     <!-- Fin del panel detalle de factura -->
     <!-- Inicio del panel agregar caja -->
     <div class="tab-pane fade " id="default-tab-2">
-        
+        <a href="#modal-without-animation" class="btn btn-sm btn-success" data-toggle="modal">Agregar Producto</a>
+        <div class="table-responsive">
+                <table class="table table-hover table-condensed ">
+                    <thead class="thead-inverse">
+                        <tr>
+                            <th class="col-md-1">N° Partida</th>
+                            <th class="col-md-6">Producto</th>
+                            <th class="col-md-1">Nuevo</th>
+                            <th class="col-md-1">Usado</th>
+                            <th class="col-md-1">Precio</th>
+                            <th class="col-md-1">Cantidad</th>
+                            <th class="col-md-1">Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <div id="listaproductos">
+                            
+                        </div>
+                    </tbody>
+                </table>
+            </div>
     </div>
     <!-- Fin del panel agregar caja -->
 </div>
@@ -165,5 +141,43 @@ else{
     $(document).ready(function() {
         $('#clientes').select2({});
         $('#fechafactura').datepicker({ dateFormat: 'yy-mm-dd' }).datepicker("setDate", new Date());
+
+        $('#listadocajas').load('listadocajas.php');
     });
 </script>
+<!-- #modal-without-animation -->
+<div class="modal" id="modal-without-animation">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Agregar Producto</h4>
+            </div>
+            <div class="modal-body">
+                <form action="" method="POST" id="agregarproductoform">
+                    <fieldset>
+                        
+                        <div class="col-md-10">
+                           <div class="form-group">
+                                <input type="text" class="form-control input-sm" id="nombreproducto" placeholder="Buscar Producto" required="" />
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                            <button type="submit" class="btn btn-sm btn-success m-r-5 input-sm">Buscar Producto</button>
+                            </div>
+                        </div> 
+                        
+                    </fieldset>
+                </form>
+                <div id="resulproductos">
+                    
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:;" class="btn btn-sm btn-white" data-dismiss="modal">Close</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- #modal-message -->
