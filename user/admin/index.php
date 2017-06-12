@@ -98,7 +98,8 @@ if (!isset($usuario) && $token != 'true') {
 				<!-- begin sidebar nav -->
 				<ul class="nav">
 					<li class="nav-header">Menu</li>
-					<li id="ingresarcaja"><a href="#" id="ingresarcaja"><i class="fa fa-cubes"></i> <span>Crear Factura</span></a></li>
+					<li id="crearfactura"><a href="#" id="crearfactura"><i class="fa fa-file-text"></i> <span>Crear Factura</span></a></li>
+					<li id="agregarcajas"><a href="#" id="agregarcajas"><i class="fa fa-cubes"></i> <span>Ingresar Cajas</span></a></li>
 					<li class="has-sub" id="crear">
 					    <a href="javascript:;">
 						    <b class="caret pull-right"></b>

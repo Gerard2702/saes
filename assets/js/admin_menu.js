@@ -1,5 +1,6 @@
-$('#ingresarcaja').click(function(){
-		$('#ingresarcaja').addClass("active");
+$('#crearfactura').click(function(){
+		$('#crearfactura').addClass("active");
+		$('#agregarcajas').removeClass("active");
 		$('#crear').removeClass("active");
 		$('#nuevocliente').removeClass("active");
 		$('#nuevoproducto').removeClass("active");
@@ -10,11 +11,28 @@ $('#ingresarcaja').click(function(){
 		$('#adminfacturas').removeClass("active");
 		$('#contenido').hide();
   		$('#contenido').load('../../user/admin/crearfactura.php');
-  		$('#contenido').fadeIn(300);		
+  		$('#contenido').fadeIn(0);
+});
+
+$('#agregarcajas').click(function(){
+		$('#crearfactura').removeClass("active");
+		$('#agregarcajas').addClass("active");
+		$('#crear').removeClass("active");
+		$('#nuevocliente').removeClass("active");
+		$('#nuevoproducto').removeClass("active");
+		$('#herramientas').removeClass("active");
+		$('#adminproductos').removeClass("active");
+		$('#adminclientes').removeClass("active");
+		$('#admincajas').removeClass("active");
+		$('#adminfacturas').removeClass("active");
+		$('#contenido').hide();
+  		$('#contenido').load('../../user/admin/agregarcajas.php');
+  		$('#contenido').fadeIn(0);
 });
 
 $('#nuevocliente').click(function(){
-		$('#ingresarcaja').removeClass("active");
+		$('#crearfactura').removeClass("active");
+		$('#agregarcajas').removeClass("active");
 		$('#crear').addClass("active");
 		$('#nuevocliente').addClass("active");
 		$('#nuevoproducto').removeClass("active");
@@ -25,11 +43,12 @@ $('#nuevocliente').click(function(){
 		$('#adminfacturas').removeClass("active");
 		$('#contenido').hide();
   		$('#contenido').load('../../user/admin/nuevocliente.php');
-  		$('#contenido').fadeIn(300);		
+  		$('#contenido').fadeIn(0);		
 });
 
 $('#nuevoproducto').click(function(){
-		$('#ingresarcaja').removeClass("active");
+		$('#crearfactura').removeClass("active");
+		$('#agregarcajas').removeClass("active");
 		$('#crear').addClass("active");
 		$('#nuevocliente').removeClass("active");
 		$('#nuevoproducto').addClass("active");
@@ -40,11 +59,12 @@ $('#nuevoproducto').click(function(){
 		$('#adminfacturas').removeClass("active");
 		$('#contenido').hide();
   		$('#contenido').load('../../user/admin/nuevoproducto.php');
-  		$('#contenido').fadeIn(300);	
+  		$('#contenido').fadeIn(0);	
 });
 
 $('#adminproductos').click(function(){
-		$('#ingresarcaja').removeClass("active");
+		$('#crearfactura').removeClass("active");
+		$('#agregarcajas').removeClass("active");
 		$('#crear').removeClass("active");
 		$('#nuevocliente').removeClass("active");
 		$('#nuevoproducto').removeClass("active");
@@ -57,7 +77,8 @@ $('#adminproductos').click(function(){
 });
 
 $('#adminclientes').click(function(){
-		$('#ingresarcaja').removeClass("active");
+		$('#crearfactura').removeClass("active");
+		$('#agregarcajas').removeClass("active");
 		$('#crear').removeClass("active");
 		$('#nuevocliente').removeClass("active");
 		$('#nuevoproducto').removeClass("active");
@@ -70,7 +91,8 @@ $('#adminclientes').click(function(){
 });
 
 $('#admincajas').click(function(){
-		$('#ingresarcaja').removeClass("active");
+		$('#crearfactura').removeClass("active");
+		$('#agregarcajas').removeClass("active");
 		$('#crear').removeClass("active");
 		$('#nuevocliente').removeClass("active");
 		$('#nuevoproducto').removeClass("active");
@@ -83,7 +105,8 @@ $('#admincajas').click(function(){
 });
 
 $('#adminfacturas').click(function(){
-		$('#ingresarcaja').removeClass("active");
+		$('#crearfactura').removeClass("active");
+		$('#agregarcajas').removeClass("active");
 		$('#crear').removeClass("active");
 		$('#nuevocliente').removeClass("active");
 		$('#nuevoproducto').removeClass("active");

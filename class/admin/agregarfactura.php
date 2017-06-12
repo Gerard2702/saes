@@ -9,9 +9,10 @@
 
 	$fecha = $_POST['fecha'];
 	$cliente = $_POST['cliente'];
+	$numfactura = $_POST['numfactura'];
 	//echo $fecha.$cliente;
 
-	$sql = "INSERT INTO facturas(idcliente,fecha,iduser,estado) values ('$cliente','$fecha','$iduser','0')";
+	$sql = "INSERT INTO facturas(numfactura,idcliente,fecha,estado) values ('$numfactura','$cliente','$fecha','0')";
     $rs = $conn->insert_delete_update($sql);
     $conn->desconectar();
 

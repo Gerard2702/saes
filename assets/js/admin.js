@@ -1,6 +1,7 @@
 $("#nuevafactura").submit(function(event){ 
         event.preventDefault(); 
         var fecha = $("#fechafactura").val();
+        var numfactura = $("#numfactura").val();
         var cliente = $("#clientes").val();
   		$.ajax({
                 type:"POST",
@@ -8,10 +9,38 @@ $("#nuevafactura").submit(function(event){
                 dataType:"text",
                 data:{
                     fecha:fecha,
+                    numfactura:numfactura,
                     cliente:cliente,
                 }
         }).done(function(data) {
             $('#contenido').load('../../user/admin/crearfactura.php');
+        });
+ });
+$("#agregarcajasform").submit(function(event){ 
+        event.preventDefault(); 
+        var fechacaja = $("#fechacaja").val();
+        var numfactura = $("#numfactura").val();
+        var numcaja = $("#numcaja").val();
+        var numcontrato = $("#numcontrato").val();
+        $.ajax({
+                type:"POST",
+                url: "../../class/admin/agregarcaja.php",
+                dataType:"text",
+                data:{
+                    fechacaja:fechacaja,
+                    numfactura:numfactura,
+                    numcaja:numcaja,
+                    numcontrato:numcontrato,
+                }
+        }).done(function(data) {
+            if(data=="false"){
+                $('#error-factura').show();
+                $('#numfacturacaja').addClass("has-error");
+                $('#numfactura').focus();
+            }
+            else{
+                $('#contenido').load('../../user/admin/agregarcajas.php');
+            }
         });
  });
 $("#nuevocliente2").submit(function(event){ 
@@ -73,29 +102,51 @@ $("#agregarproductoform").submit(function(event){
         var producto = $("#nombreproducto").val();
         $.ajax({
                 type:"POST",
-                url: "../../class/admin/buscarproductos.php",
+                url: "../../class/admin/buscarproductosbox.php",
                 dataType:"text",
                 data:{
                     producto:producto,
                 }
         }).done(function(data) {
-            $('#resulproductos').html(data);
+            $('#contenidoproductos').html(data);
         });   
  });
 
-$("#detallefacturadiv").click(function(event){ 
-        $('#listadocajas').load('../../user/admin/listadocajas.php');
- });
 
-$("#agregarcaja").click(function(event){ 
-	$('#agregarcajadiv').addClass("active");
-	$('#detallefacturadiv').removeClass("active");
- });
-<<<<<<< HEAD
+function agregar(id)
+{
+    var idproducto = id;  
+    $.ajax({
+            type:"POST",
+            url: "../../class/admin/detalleproductobox.php",
+            dataType:"text",
+            data:{
+                idproducto:idproducto,
+            }
+    }).done(function(data) {
+        $('#resulproductos').html(data);
+    });
+    $("#producmodal").modal();
+}
 
-
-$("#agregarproducto").click(function(event){ 
-    alert("funca");
+$("#agregarproductobox").submit(function(event){ 
+    event.preventDefault();
+    var idcaja = $("#idcajabox").val(); 
+    var idproducto = $("#idproductobox").val();
+    var precioproducto = $("#precioproductobox").val();
+    var cantidadproducto = $("#cantidadproductobox").val();
+    $.ajax({
+            type:"POST",
+            url: "../../class/admin/agregarproductobox.php",
+            dataType:"text",
+            data:{
+                idcaja:idcaja,
+                idproducto:idproducto,
+                precioproducto:precioproducto,
+                cantidadproducto:cantidadproducto
+            }
+    }).done(function(data) {
+        $('#contenido').load('../../user/admin/agregarcajas.php');
+    });
+    $('#producmodal').modal('hide'); 
  });
-=======
->>>>>>> 95285e92bba740431309c36b2329cb2d23529b68
