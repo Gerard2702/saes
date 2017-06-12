@@ -8,10 +8,6 @@ $conn->query("SET NAMES 'utf8'");
 $query = "SELECT * FROM clientes order by cliente";
 $resp  = $conn->query($query);
 $num   = mysqli_num_rows($resp);
-/*
-$query2 = "SELECT fac.idfactura,cli.cliente,fac.fecha,fac.iduser from facturas fac inner join clientes cli on cli.idcliente=fac.idcliente where fac.estado=0 and fac.iduser='$iduser '";
-$resp2  = $conn->query($query2);
-$num2   = mysqli_num_rows($resp2);*/
 $conn->desconectar();
 ?>
 <!-- Inicio del panel si no hay factura creada -->

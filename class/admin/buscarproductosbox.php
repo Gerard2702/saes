@@ -5,14 +5,10 @@
 	$conn = new Conexion();
 	$conn->conectar();
 	$conn->query("SET NAMES 'utf8'");
-
 	$nombreproducto = $_POST['producto'];
-
 	$sql = "SELECT * from productos where producto like '%".$nombreproducto."%'";
     $rs = $conn->query($sql);
-
     $conn->desconectar();
-
     if(mysqli_num_rows($rs)>0){?>
     		<div class='table-responsive'>
 			    <table class='table table-hover table-condensed'>
@@ -23,8 +19,7 @@
 			                <th class="col-md-1">Estado</th>
 			                <th class="col-md-1">Precio</th>
 			            </tr>
-			        </thead>
-			        
+			        </thead>			        
 			        <tbody>
 			        <?php while($productos = mysqli_fetch_array($rs,MYSQLI_ASSOC)){ ?>
 			            <tr onclick="agregar(<?php echo $productos['idproducto'];?>)">

@@ -23,7 +23,6 @@ $rsproductos = $conn->query($sqlproductos);
 $numproductos = mysqli_num_rows($rsproductos);
 $conn->desconectar();
 ?>
-
 <div class="panel panel-inverse" data-sortable-id="form-stuff-3">
     <div class="panel-heading">
         <div class="btn-group pull-right">
@@ -65,8 +64,7 @@ $conn->desconectar();
             </div>
             <div class="col-md-12">
                 <form action="" method="POST" id="agregarproductoform">
-                    <fieldset>
-                        
+                    <fieldset>                       
                         <div class="col-md-10">
                            <div class="form-group">
                                 <input type="text" class="form-control input-sm" id="nombreproducto" placeholder="Buscar Producto" required="" autofocus="" />
@@ -76,8 +74,7 @@ $conn->desconectar();
                             <div class="form-group">
                             <button type="submit" class="btn btn-sm btn-success m-r-5 input-sm">Buscar Producto</button>
                             </div>
-                        </div> 
-                        
+                        </div>                   
                     </fieldset>
                 </form>
             </div>
@@ -97,8 +94,7 @@ $conn->desconectar();
                                 <th class="col-md-1">Usado</th>                                                      
                                 <th class="col-md-1">Valor</th>
                             </tr>
-                        </thead>
-                        
+                        </thead>                       
                         <tbody>
                         <?php if($numproductos>0){ ?>
                         <?php while($product = mysqli_fetch_array($rsproductos,MYSQLI_ASSOC)){?>
@@ -135,7 +131,6 @@ $conn->desconectar();
                 </div> 
             </div>  
             </div>
-   
         </fieldset>
     </div>
 </div>
@@ -183,9 +178,7 @@ else{ ?>
 </div>
 <!-- Fin del panel agregar cajas -->
 <?php }
-
 ?>
-
 <script src="../../assets/js/admin.js"></script>
 <script>
     $(document).ready(function() {
@@ -194,9 +187,5 @@ else{ ?>
         $('#nombreproducto').focus();
         $('#fechacaja').datepicker({ dateFormat: 'yy-mm-dd' }).datepicker("setDate", new Date());
     });
-
-    /*$('#producmodal').on('shown.bs.modal', function() {
-      $('#nombreproducto').focus();
-    });*/
 </script>
 

@@ -5,14 +5,10 @@ include("../../config/conexion.php");
 $conn = new Conexion();
 $conn->conectar();
 $conn->query("SET NAMES 'utf8'");
-
 $idproducto = $_POST['idproducto'];
-
 $sql = "SELECT * from productos where idproducto='".$idproducto."'";
 $rs = $conn->query($sql);
-
 $conn->desconectar();
-
 if(mysqli_num_rows($rs)>0){
 $producto = $rs->fetch_assoc();
 ?>
