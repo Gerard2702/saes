@@ -23,7 +23,7 @@
 			        <tbody>
 			        <?php while($productos = mysqli_fetch_array($rs,MYSQLI_ASSOC)){ ?>
 			            <tr onclick="agregar(<?php echo $productos['idproducto'];?>)">
-			                <td><?php echo $productos['partida'] ?></td>
+			                <td ><?php echo $productos['partida'] ?></td>
 			                <td><?php echo $productos['producto'] ?></td>
 			                <td><?php echo $productos['estado'] ?></td>
 			               	<td><?php echo $productos['precio'] ?></td>

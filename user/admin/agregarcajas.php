@@ -64,8 +64,13 @@ $conn->desconectar();
             </div>
             <div class="col-md-12">
                 <form action="" method="POST" id="agregarproductoform">
-                    <fieldset>                       
-                        <div class="col-md-10">
+                    <fieldset>
+                        <div class="col-md-1">
+                            <div class="form-group">
+                            <button id="reloadproductos" type="button" class="btn btn-sm btn-success btn-block m-r-5 input-sm"><i class="fa fa-arrow-left"></i></button>
+                            </div>
+                        </div>                       
+                        <div class="col-md-9">
                            <div class="form-group">
                                 <input type="text" class="form-control input-sm" id="nombreproducto" placeholder="Buscar Producto" required="" autofocus="" />
                             </div>

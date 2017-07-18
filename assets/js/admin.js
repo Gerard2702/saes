@@ -112,6 +112,10 @@ $("#agregarproductoform").submit(function(event){
         });   
  });
 
+$('#reloadproductos').click(function(){
+    $('#contenido').load('../../user/admin/agregarcajas.php');
+});
+
 
 function agregar(id)
 {
