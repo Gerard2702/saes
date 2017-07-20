@@ -112,6 +112,44 @@ $("#agregarproductoform").submit(function(event){
         });   
  });
 
+$("#reporte-caja").submit(function(event){ 
+    event.preventDefault(); 
+        var factura = $("#factura").val();
+        var contrato = $("#contrato").val();
+        var caja = $("#caja").val();
+        $.ajax({
+                type:"POST",
+                url: "../../class/admin/buscarreportecaja.php",
+                dataType:"text",
+                data:{
+                    dato1:factura,
+                    dato2:contrato,
+                    dato3:caja,
+                }
+        }).done(function(data) {
+            $('#probando').show();
+            $('#report').html(data);
+        });   
+ });
+
+$("#reporte-factura").submit(function(event){ 
+    event.preventDefault(); 
+        var factura = $("#factura").val();
+        $.ajax({
+                type:"POST",
+                url: "../../class/admin/buscarreportefactura.php",
+                dataType:"text",
+                data:{
+                    dato1:factura,
+                }
+        }).done(function(data) {
+            $('#probando').show();
+            $('#report').html(data);
+        });   
+ });
+
+
+
 $('#reloadproductos').click(function(){
     $('#contenido').load('../../user/admin/agregarcajas.php');
 });

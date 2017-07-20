@@ -124,16 +124,16 @@ if (!isset($usuario) && $token != 'true') {
 							<li id="admincajas"><a href="#" id="admincajas">Administrar Cajas</a></li>
 						</ul>
 					</li>
-					<li class="has-sub">
+					<li class="has-sub" id="reportes">
 					    <a href="javascript:;">
 						    <b class="caret pull-right"></b>
 					        <i class="fa fa-file-excel-o" aria-hidden="true"></i>
 					        <span>Reportes</span>
 					    </a>
 						<ul class="sub-menu">
-							<li><a href="#" id="reportecaja">Cajas</a></li>
-							<li><a href="#" id="reportefactura">Facturas</a></li>
-							<li><a href="#" id="reportecontrato">Contrato</a></li>
+							<li id="reportecaja"><a href="#" id="reportecaja">Cajas</a></li>
+							<li id="reportefactura"><a href="#" id="reportefactura">Facturas</a></li>
+							<li id="reportecontrato"><a href="#" id="reportecontrato">Contrato</a></li>
 						</ul>
 					</li>
 					
