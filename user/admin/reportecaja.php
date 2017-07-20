@@ -41,11 +41,20 @@ $conn->desconectar();
 
             	<div class="col-sm-4">
             		<button type="submit" class="btn btn-sm btn-success m-r-5">Buscar</button>
+<<<<<<< HEAD
             	</div>            
+=======
+            	</div>
+
+            <div class="col-md-12" id="report">
+
+            </div>
+>>>>>>> origin/master
             </fieldset>
         </form>
     </div>
 </div>
+<<<<<<< HEAD
            
 <div class="panel panel-inverse" data-sortable-id="form-stuff-3" id="probando">
     <div class="panel-heading">
@@ -61,4 +70,8 @@ $conn->desconectar();
 <script>
     $('#probando').hide();
 </script>         
+=======
+
+<script src="../../assets/js/admin.js"></script>           
+>>>>>>> origin/master
  

@@ -3,7 +3,15 @@
 			$iduser = $_SESSION['iduser'];
 			include("../../config/conexion.php");
 			$totalneto=0;
+<<<<<<< HEAD
 			$count3=0;
+=======
+			$count=0;
+			$count1=0;
+			$count2=0;
+			$count3=0;
+			$count4=0;
+>>>>>>> origin/master
 			$conn = new Conexion();
 			$conn->conectar();
 			$conn->query("SET NAMES 'utf8'");
@@ -12,14 +20,50 @@
 			$numcontrato = $_POST['dato2'];
 			$numcaja = $_POST['dato3'];
 
+<<<<<<< HEAD
 		    $sqlexp = "SELECT facturas.numfactura,facturas.fecha,cajas.caja,cajas.contrato,detalle_caja.cantidad,detalle_caja.total,productos.producto,productos.partida, productos.precio,productos.estado, clientes.cliente FROM detalle_caja INNER JOIN productos ON productos.idproducto=detalle_caja.idproducto INNER JOIN cajas ON cajas.idcaja=detalle_caja.idcaja INNER JOIN facturas ON facturas.idfactura=cajas.idfactura INNER JOIN clientes ON clientes.idcliente=facturas.idcliente  WHERE cajas.caja='$numcaja' AND cajas.contrato='$numcontrato' AND facturas.numfactura='$numfacturas' AND cajas.estado='0'";
 		    $rs3 = $conn->query($sqlexp);
 			$count3 = mysqli_num_rows($rs3);
 			$informacion = $rs3->fetch_assoc();
+=======
+			$sql = "SELECT idfactura, idcliente, fecha  FROM facturas WHERE numfactura = '$numfacturas'";
+		    $rs5 = $conn->query($sql);
+		    $count = mysqli_num_rows($rs5);
+		    if ($count > 0) {
+		    	while ($row = mysqli_fetch_array($rs5,MYSQLI_ASSOC)) {
+		    		$facturaid = $row['idfactura'];
+		    		$clienteid = $row['idcliente'];
+		    		$fechafactura = $row['fecha'];
+		    	}	
+
+		    	$sql2 = "SELECT idcaja FROM cajas WHERE idfactura = '$facturaid' AND caja = '$numcaja' AND contrato = '$numcontrato' AND estado='0'";
+			    $rs4 = $conn->query($sql2);
+			    $count2 = mysqli_num_rows($rs4);
+			    if ($count2 > 0) {
+			    	while ($row2 = mysqli_fetch_array($rs4,MYSQLI_ASSOC)) {
+			    		$idcajas = $row2['idcaja'];
+			    	}	
+
+			    	$sql3 = "SELECT * FROM detalle_caja WHERE idcaja = '$idcajas'";
+				    $rs3 = $conn->query($sql3);
+				    $count3 = mysqli_num_rows($rs3);	    	
+			    }
+
+			    $sql4 = "SELECT cliente FROM clientes WHERE idcliente = '$	z'";
+			    $rs2 = $conn->query($sql4);
+			    $count4 = mysqli_num_rows($rs2);
+			    if ($count4 > 0) {
+			    	while ($row3 = mysqli_fetch_array($rs2,MYSQLI_ASSOC)) {
+			    		$clientenombre = $row3['cliente'];
+			    	}		    	
+			    }
+		    }
+>>>>>>> origin/master
 		    $conn->desconectar();
 		?>
 
 				<div> 
+<<<<<<< HEAD
 				<br>
                     <div class="invoice-header">
 		                <div class="invoice-from">
@@ -40,6 +84,9 @@
 		                    </div>
 		                </div>
 		            </div>
+=======
+                    <br><span><strong>Listado de productos agregados</strong></span></br>
+>>>>>>> origin/master
                     <div class="table-responsive">
                         <table class="table table-hover table-condensed ">
                             <thead class="thead-inverse">
@@ -55,6 +102,7 @@
                             </thead>                       
                             <tbody>
                             <?php if($count3>0){ ?>
+<<<<<<< HEAD
                             <?php while($product = mysqli_fetch_array($rs3,MYSQLI_ASSOC)){                           	
                             ?>
                                 <tr>
@@ -68,6 +116,27 @@
 										<?php } else {?>
 											<td></td>
 										    <td><?php echo $product['estado'];?></td>
+=======
+                            <?php while($product = mysqli_fetch_array($rs3,MYSQLI_ASSOC)){
+                            	$conn->conectar();
+                            	$varidprod = $product['idproducto'];
+                            	$sql4 = "SELECT * FROM productos WHERE idproducto = '$varidprod'";
+                            	$rs2 = $conn->query($sql4);
+                            	$conn->desconectar();
+                            	$product2 = mysqli_fetch_array($rs2,MYSQLI_ASSOC);                            	
+                            ?>
+                                <tr>
+                                    <td><?php echo $product2['partida'];?></td>
+                                    <td><?php echo $product2['producto'];?></td>
+                                    <td><?php echo $product['cantidad'];?></td>
+                                    <td><?php echo $product2['precio'];?></td>
+                                    <?php if (strcmp($product2['estado'], "NUEVO") == 0) {?>
+										   	<td><?php echo $product2['estado'];?></td>
+                                    		<td></td> 
+										<?php } else {?>
+											<td></td>
+										    <td><?php echo $product2['estado'];?></td>
+>>>>>>> origin/master
 											<?php }
 										?>
                                     	                                   	
