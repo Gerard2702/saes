@@ -9,6 +9,10 @@ $('#crearfactura').click(function(){
 		$('#adminclientes').removeClass("active");
 		$('#admincajas').removeClass("active");
 		$('#adminfacturas').removeClass("active");
+		$('#reportefactura').removeClass("active");
+		$('#reportecontrato').removeClass("active");
+		$('#reportes').removeClass("active");
+		$('#reportecaja').removeClass("active");
 		$('#contenido').hide();
   		$('#contenido').load('../../user/admin/crearfactura.php');
   		$('#contenido').fadeIn(0);
@@ -25,6 +29,10 @@ $('#agregarcajas').click(function(){
 		$('#adminclientes').removeClass("active");
 		$('#admincajas').removeClass("active");
 		$('#adminfacturas').removeClass("active");
+		$('#reportefactura').removeClass("active");
+		$('#reportecontrato').removeClass("active");
+		$('#reportes').removeClass("active");
+		$('#reportecaja').removeClass("active");
 		$('#contenido').hide();
   		$('#contenido').load('../../user/admin/agregarcajas.php');
   		$('#contenido').fadeIn(0);
@@ -41,6 +49,10 @@ $('#nuevocliente').click(function(){
 		$('#adminclientes').removeClass("active");
 		$('#admincajas').removeClass("active");
 		$('#adminfacturas').removeClass("active");
+		$('#reportefactura').removeClass("active");
+		$('#reportecontrato').removeClass("active");
+		$('#reportes').removeClass("active");
+		$('#reportecaja').removeClass("active");
 		$('#contenido').hide();
   		$('#contenido').load('../../user/admin/nuevocliente.php');
   		$('#contenido').fadeIn(0);		
@@ -57,6 +69,10 @@ $('#nuevoproducto').click(function(){
 		$('#adminclientes').removeClass("active");
 		$('#admincajas').removeClass("active");
 		$('#adminfacturas').removeClass("active");
+		$('#reportefactura').removeClass("active");
+		$('#reportecontrato').removeClass("active");
+		$('#reportes').removeClass("active");
+		$('#reportecaja').removeClass("active");
 		$('#contenido').hide();
   		$('#contenido').load('../../user/admin/nuevoproducto.php');
   		$('#contenido').fadeIn(0);	
@@ -73,6 +89,10 @@ $('#adminproductos').click(function(){
 		$('#adminclientes').removeClass("active");
 		$('#admincajas').removeClass("active");
 		$('#adminfacturas').removeClass("active");
+		$('#reportefactura').removeClass("active");
+		$('#reportecontrato').removeClass("active");
+		$('#reportes').removeClass("active");
+		$('#reportecaja').removeClass("active");
        	$('#contenido').load('../../user/admin/adminproductos.php');
 });
 
@@ -87,6 +107,10 @@ $('#adminclientes').click(function(){
 		$('#adminclientes').addClass("active");
 		$('#admincajas').removeClass("active");
 		$('#adminfacturas').removeClass("active");
+		$('#reportefactura').removeClass("active");
+		$('#reportecontrato').removeClass("active");
+		$('#reportes').removeClass("active");
+		$('#reportecaja').removeClass("active");
        	$('#contenido').load('../../user/admin/adminclientes.php');
 });
 
@@ -101,6 +125,10 @@ $('#admincajas').click(function(){
 		$('#adminclientes').removeClass("active");
 		$('#admincajas').addClass("active");
 		$('#adminfacturas').removeClass("active");
+		$('#reportefactura').removeClass("active");
+		$('#reportecontrato').removeClass("active");
+		$('#reportes').removeClass("active");
+		$('#reportecaja').removeClass("active");
        	$('#contenido').load('../../user/admin/admincajas.php');
 });
 
@@ -115,5 +143,27 @@ $('#adminfacturas').click(function(){
 		$('#adminclientes').removeClass("active");
 		$('#admincajas').removeClass("active");
 		$('#adminfacturas').addClass("active");
+		$('#reportefactura').removeClass("active");
+		$('#reportecontrato').removeClass("active");
+		$('#reportes').removeClass("active");
+		$('#reportecaja').removeClass("active");
        	$('#contenido').load('../../user/admin/adminfacturas.php');
+});
+
+$('#reportecaja').click(function(){
+		$('#crearfactura').removeClass("active");
+		$('#agregarcajas').removeClass("active");
+		$('#crear').removeClass("active");
+		$('#nuevocliente').removeClass("active");
+		$('#nuevoproducto').removeClass("active");
+		$('#herramientas').removeClass("active");
+		$('#adminproductos').removeClass("active");
+		$('#adminclientes').removeClass("active");
+		$('#admincajas').removeClass("active");
+		$('#adminfacturas').removeClass("active");
+		$('#reportefactura').removeClass("active");
+		$('#reportecontrato').removeClass("active");
+		$('#reportes').addClass("active");
+		$('#reportecaja').addClass("active");
+  		$('#contenido').load('../../user/admin/reportecaja.php');
 });
