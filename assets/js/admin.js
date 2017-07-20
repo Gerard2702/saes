@@ -132,6 +132,7 @@ $("#reporte-caja").submit(function(event){
         });   
  });
 
+<<<<<<< HEAD
 $("#reporte-factura").submit(function(event){ 
     event.preventDefault(); 
         var factura = $("#factura").val();
@@ -148,6 +149,8 @@ $("#reporte-factura").submit(function(event){
         });   
  });
 
+=======
+>>>>>>> origin/master
 
 
 $('#reloadproductos').click(function(){

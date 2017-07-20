@@ -166,6 +166,7 @@ $('#reportecaja').click(function(){
 		$('#reportes').addClass("active");
 		$('#reportecaja').addClass("active");
   		$('#contenido').load('../../user/admin/reportecaja.php');
+<<<<<<< HEAD
 });
 
 $('#reportefactura').click(function(){
@@ -184,4 +185,6 @@ $('#reportefactura').click(function(){
 		$('#reportes').addClass("active");
 		$('#reportecaja').removeClass("active");
   		$('#contenido').load('../../user/admin/reportefactura.php');
+=======
+>>>>>>> origin/master
 });
